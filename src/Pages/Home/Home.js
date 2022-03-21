@@ -14,7 +14,7 @@ const Home = () => {
       <Products />
       <Blogs/>
       <LogoSection/>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 };

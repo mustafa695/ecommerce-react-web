@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { HiShoppingCart } from "react-icons/hi";
 import { AiFillHeart } from "react-icons/ai";
@@ -6,7 +7,7 @@ import { AiFillHeart } from "react-icons/ai";
 const Header = () => {
   const [showDropDown, setShowDropDown] = useState(false);
   const cartData = useSelector((state) => state.data);
-  console.log(cartData);
+  const navigate = useNavigate();
   const myRef = useRef();
 
   const handleClickOutside = (e) => {
@@ -23,6 +24,9 @@ const Header = () => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   });
+
+  //cart total sum
+  const totalSum = cartData?.reduce((a, b) => +a + +b?.price * +b?.quant, 0);
 
   return (
     <div
@@ -145,14 +149,26 @@ const Header = () => {
                     )}
                     <div className="flex justify-between">
                       <h3 className="text-xl font-bold">Total</h3>
-                      <h4 className="text-xl font-bold">$99</h4>
+                      <h4 className="text-xl font-bold">${totalSum}</h4>
                     </div>
                     <hr className="mt-4 border-t border-[#0000001a]" />
                     <div className="flex justify-between mt-3">
-                      <button className="uppercase text-sm px-3 py-2 rounded-sm bg-[#f8f8f8] text-color font-bold">
+                      <button
+                        onClick={() => {
+                          navigate("/shopping-cart");
+                          setShowDropDown(false);
+                        }}
+                        className="uppercase text-sm px-3 py-2 rounded-sm bg-[#f8f8f8] text-color font-bold"
+                      >
                         Shopping Cart
                       </button>
-                      <button className="uppercase text-sm px-3 py-2 rounded-sm bg-[#f8f8f8] text-color font-bold">
+                      <button
+                        onClick={() => {
+                          navigate("/checkout");
+                          setShowDropDown(false);
+                        }}
+                        className="uppercase text-sm px-3 py-2 rounded-sm bg-[#f8f8f8] text-color font-bold"
+                      >
                         Checkout
                       </button>
                     </div>

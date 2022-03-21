@@ -83,7 +83,7 @@ const Products = () => {
           return (
             <div className="basis-3/12 w-3/12 p-4" key={ind}>
               <div className="group product relative overflow-hidden">
-                <img className="product_img" src={product1} alt="products" />
+                <img className="product_img" src={item?.img} alt="products" />
                 <div className="group-hover:opacity-100 absolute top-0 transition ease-in duration-150 left-0 right-0 bottom-0 bg-[#47bac1e6] w-full h-full opacity-0 "></div>
                 <div className="group-hover:opacity-100 transition duration-100 ease-linear absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0">
                   <div className="bg-white h-14 flex items-center w-40">
@@ -125,9 +125,9 @@ const Products = () => {
               </div>
               <div>
                 <h3 className="mt-4 mb-2 text-md font-bold text-color">
-                  Scarf Ring Corner
+                  {item?.title}
                 </h3>
-                <h3 className="text-[#A5A5A5] font-bold text-xl">$79.00</h3>
+                <h3 className="text-[#A5A5A5] font-bold text-xl">${item?.price}.00</h3>
               </div>
             </div>
           );
