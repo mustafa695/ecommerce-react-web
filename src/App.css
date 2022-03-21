@@ -1,0 +1,130 @@
+@media (min-width: 1360px) {
+  .container {
+    max-width: 1260px;
+  }
+}
+
+.css-nvf14r-ToastContainer {
+  top: 90px !important;
+}
+
+.text-color {
+  color: #252525;
+}
+
+.min-70 {
+  display: flex !important;
+  min-height: 120px !important;
+}
+.max-h {
+  max-height: 422px;
+  overflow-y: scroll;
+}
+
+.max-h::-webkit-scrollbar {
+  width: 6px;
+  /* -webkit-box-shadow: inset 0 0 6px rgb(10, 58, 189);  */
+  background-color: #fff;
+  
+}
+
+.max-h::-webkit-scrollbar-track {
+  /* -webkit-box-shadow: inset 0 0 6px rgb(10, 58, 189);  */
+  border-radius: 10px;
+}
+
+.max-h::-webkit-scrollbar-thumb {
+  background-color: #a5a5a898;
+  border-radius: 5px;
+  /* -webkit-box-shadow: inset 0 0 6px rgb(10, 58, 189);  */
+}
+
+.border-t-12 {
+  border-top-width: 12px;
+}
+
+.slide_banner {
+  position: relative;
+  height: 530px !important;
+  overflow: hidden;
+}
+.slide_banner .ban1_img {
+  max-width: 550px !important;
+}
+.hov {
+  transition: 0.1s all ease;
+}
+.hov .hoverContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #47bac1e6;
+  opacity: 0;
+  transition: 0.5s all ease;
+}
+.hov .hoverBtn {
+  position: absolute;
+  bottom: 60px;
+  left: 20px;
+  background-color: #fff;
+  padding: 12px 35px;
+  color: rgba(0, 0, 0, 0.801);
+  opacity: 0;
+  transition: 0.5s all ease;
+}
+.hov:hover {
+  color: #fff !important;
+}
+
+.hov:hover .hoverContent {
+  opacity: 1;
+}
+.hov:hover .hoverBtn {
+  opacity: 1;
+  bottom: 25px;
+}
+.hov:hover .text-color {
+  color: #fff;
+}
+
+/*Products*/
+.product .product_img {
+  transition: 0.5s all ease;
+}
+.product:hover .product_img {
+  transform: scale(1.2);
+}
+
+.product_img {
+  width: 275px;
+  height: 280px;
+  object-fit: cover;
+}
+
+.icons_product::before {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  border-right: 1px solid #25252548;
+}
+
+.maxwidth {
+  min-height: 275px !important;
+  max-width: 245px !important;
+}
+
+#product_ .slick-prev:before,
+.slick-next:before {
+  content: "" !important;
+}
+
+#product_ .slick-prev {
+  left: -70px !important;
+}
