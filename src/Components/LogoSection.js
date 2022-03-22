@@ -4,6 +4,7 @@ import logo1 from "../assets/log1.png";
 import logo2 from "../assets/log2.png";
 import logo3 from "../assets/log3.png";
 import logo4 from "../assets/log4.png";
+
 export const LogoSection = () => {
   const settings = {
     dots: false,
