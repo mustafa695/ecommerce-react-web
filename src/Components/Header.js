@@ -167,6 +167,7 @@ const Header = () => {
                           navigate("/checkout");
                           setShowDropDown(false);
                         }}
+                        disabled={cartData.length ? false : true}
                         className="uppercase text-sm px-3 py-2 rounded-sm bg-[#f8f8f8] text-color font-bold"
                       >
                         Checkout

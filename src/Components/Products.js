@@ -1,76 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addCart, removeFromCart } from "../store/action/index";
 import { useToasts } from "react-toast-notifications";
 import { RiHeartLine } from "react-icons/ri";
 import { BsCartPlus, BsEyeFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
-import product1 from "../assets/prod1.jpg";
-import product2 from "../assets/prod2.jpg";
-import product3 from "../assets/prod3.jpg";
 
-const Products = () => {
+
+const Products = ({ product }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+ 
+ 
   const cartData = useSelector((state) => state.data);
   const { addToast } = useToasts();
-  const product = [
-    {
-      id: 1,
-      title: "Scarf Ring Corner",
-      img: product1,
-      price: 79.0,
-      quant: 1,
-    },
-    {
-      id: 2,
-      title: "Nike Sportswear",
-      img: product2,
-      price: 50.0,
-      quant: 1,
-    },
-    {
-      id: 3,
-      title: "Dip Dyed Sweater",
-      img: product3,
-      price: 300.0,
-      quant: 1,
-    },
-    {
-      id: 4,
-      title: "Dip Dyed Sweater",
-      img: product3,
-      price: 300.0,
-      quant: 1,
-    },
-    {
-      id: 5,
-      title: "Dip Dyed Sweater",
-      img: product3,
-      price: 300.0,
-      quant: 1,
-    },
-    {
-      id: 6,
-      title: "Dip Dyed Sweater",
-      img: product3,
-      price: 300.0,
-      quant: 1,
-    },
-    {
-      id: 7,
-      title: "Dip Dyed Sweater",
-      img: product3,
-      price: 300.0,
-      quant: 1,
-    },
-    {
-      id: 8,
-      title: "Dip Dyed Sweater",
-      img: product3,
-      price: 300.0,
-      quant: 1,
-    },
-  ];
+  
   return (
     <div className="container mx-auto" id="product_">
       <div className="border-b-4 border-[#e4e4e4] mb-8">
@@ -94,15 +39,13 @@ const Products = () => {
                       <div className="icons_product relative cursor-pointer">
                         {cartData?.some((i) => item?.id === i?.id) ? (
                           <MdOutlineRemoveShoppingCart
-                            onClick={() =>
-                              {
-                                addToast("Cart removed successfully.", {
-                                  appearance: "success",
-                                  autoDismiss: true,
-                                });
-                                dispatch(removeFromCart(item))
-                              }
-                            }
+                            onClick={() => {
+                              addToast("Cart removed successfully.", {
+                                appearance: "success",
+                                autoDismiss: true,
+                              });
+                              dispatch(removeFromCart(item));
+                            }}
                           />
                         ) : (
                           <BsCartPlus
@@ -117,7 +60,11 @@ const Products = () => {
                         )}
                       </div>
                       <div className="cursor-pointer">
-                        <BsEyeFill />
+                        <BsEyeFill
+                          onClick={() =>
+                            navigate(`/single-product/${item?.id}`)
+                          }
+                        />
                       </div>
                     </div>
                   </div>
@@ -127,7 +74,9 @@ const Products = () => {
                 <h3 className="mt-4 mb-2 text-md font-bold text-color">
                   {item?.title}
                 </h3>
-                <h3 className="text-[#A5A5A5] font-bold text-xl">${item?.price}.00</h3>
+                <h3 className="text-[#A5A5A5] font-bold text-xl">
+                  ${item?.price}.00
+                </h3>
               </div>
             </div>
           );

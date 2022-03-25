@@ -10,11 +10,11 @@ const Featured = () => {
           Featured Collection
         </h3>
       </div>
-      <div className="flex">
-        <div className="basis-2/6 w-2/6 mt-5 mr-4">
+      <div className="flex flex-wrap -mx-4">
+        <div className="basis-2/6 w-2/6 mt-5 p-4">
           <div className="bg-[#ddd] relative hov">
             <figure>
-              <img src={feat1} alt="featured" />
+              <img src={feat1} className="w-full" alt="featured" />
             </figure>
             <div className="absolute left-6 top-6 z-50">
               <h3 className="text-color font-bold text-2xl">
@@ -29,10 +29,10 @@ const Featured = () => {
           </div>
         </div>
 
-        <div className="basis-2/6 w-2/6 mt-5 mr-4">
+        <div className="basis-2/6 w-2/6 mt-5 p-4">
           <div className="bg-[#ddd] relative hov">
             <figure>
-              <img src={feat2} alt="featured" />
+              <img src={feat2} className="w-full" alt="featured" />
             </figure>
             <div className="absolute left-6 top-6 z-50">
               <h3 className="text-color font-bold text-2xl">
@@ -47,10 +47,10 @@ const Featured = () => {
           </div>
         </div>
 
-        <div className="basis-2/6 w-2/6 mt-5 mr-4">
+        <div className="basis-2/6 w-2/6 mt-5 p-4">
           <div className="bg-[#ddd] relative hov">
             <figure>
-              <img src={feat3} alt="featured" />
+              <img src={feat3} className="w-full" alt="featured" />
             </figure>
             <div className="absolute left-6 top-6 z-50">
               <h3 className="text-color font-bold text-2xl">

@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import OrderReview from "./OrderReview";
+import Payment from "./Payment";
+import ShippingDetail from "./ShippingDetail";
 
 const CheckoutForm = () => {
   let progress = [
@@ -41,7 +44,7 @@ const CheckoutForm = () => {
 
   return (
     <div className="mt-8">
-      <div className="border-4 border-slate-100 p-4">
+      <div className="border-4 border-slate-100 px-4 pb-4 pt-14">
         <div className="flex justify-around line relative">
           {progressData.map((item, ind) => {
             return (
@@ -53,14 +56,16 @@ const CheckoutForm = () => {
                     : "bg-[#ddd] w-8 h-8 rounded-full relative circle"
                 }
               >
-                  <h3 className="-mt-6 text-center whitespace-nowrap">{item?.title}</h3>
+                <h3 className="absolute text-[#252525] uppercase tracking-wide -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap">
+                  {item?.title}
+                </h3>
               </div>
             );
           })}
         </div>
-        {currPage === 1 && <h3>Shipping Address 1</h3>}
-        {currPage === 2 && <h3>Shipping Address 2</h3>}
-        {currPage === 3 && <h3>Shipping Address 3</h3>}
+        {currPage === 1 && <ShippingDetail />}
+        {currPage === 2 && <Payment />}
+        {currPage === 3 && <OrderReview />}
         <div
           className={
             currPage === 1 ? "flex justify-end" : "flex justify-between"
